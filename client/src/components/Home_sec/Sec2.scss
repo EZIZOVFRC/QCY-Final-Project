@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+$main-color: #111111;
+$second-color: #ffad00;
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+.sec2 {
+  h5 {
+    font-family: sans-serif;
+    margin-top: 100px;
+    margin-left: 150px;
+    font-weight: lighter;
+    position: relative;
+    font-size: 18px;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 5%;
+      color: $second-color;
+      background-color: $second-color;
+      left: 0;
+      bottom: -40%;
+      height: 2px;
+    }
+  }
+}
+.wrapper {
+  display: flex;
+  gap: 40px;
+  padding: 150px 80px;
+  padding-left: 150px;
+}
+
+.card {
+  position: relative;
+  width: 30%;
+  height: 350px;
+  cursor: pointer;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.card .front {
+  transform: perspective(600px) rotateY(0deg);
+  box-shadow: 0 5px 10px #fff;
+}
+
+.card .front img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-h1 {
+  position: absolute;
+  bottom: -7px;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  color: #ffffff;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.464);
+}
+
+.card .back {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: perspective(600px) rotateY(180deg);
+  background: $main-color;
+  padding: 15px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  box-shadow: 0 5px 10px #fff;
+}
+
+.links {
+  border-top: $second-color;
+  height: 50px;
+  line-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  transition: 0.2s;
+
+  a {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+     
+      gap: 10px;
+      color: #ffad00;
+    }
+    i{
+        font-size: 32px;
+        margin-top: 5px;
+        margin-left: 5px;
+        transition: 0.2s;
+       
+    }
+  }
+}
+
+.card .back .text-h2 {
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+.card .back .text-p {
+  letter-spacing: 1px;
+  line-height: 40px;
+}
+
+.card:hover .front {
+  transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover .back {
+  transform: perspective(600px) rotateY(360deg);
+}
+
+.card {
+  position: relative;
+  width: 30%;
+  height: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: $second-color;
+  color: #ffffff;
+  border: 3px solid transparent;
+
+  &:hover {
+    transform: scale(1.05);
+    border-color: $second-color;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-left: 2px solid $second-color;
+      border-bottom: 2px solid $second-color;
+      animation: expandLine 2s forwards;
+    }
+  }
+}
+
+@keyframes expandLine {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+}

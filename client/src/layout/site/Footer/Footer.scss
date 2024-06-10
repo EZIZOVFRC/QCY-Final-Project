@@ -1,0 +1,133 @@
+$main-color: #111111;
+$second-color: #ffad00;
+.col-8 {
+  width: 67%;
+}
+.col-2 {
+  width: 17%;
+}
+.footer {
+  background-color: #0c0f12;
+  
+  &__bottom{
+    background-image: url(https://www.qcy.com/html/phone/images/footer_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    padding: 30px 150px;
+    justify-content: space-between;
+    color: rgba(115, 115, 115, 0.633);
+    border-top: 1px solid rgba(128, 128, 128, 0.401);
+    span{
+        margin-left: 20px;
+    }
+    ul{
+        display: flex;
+        gap: 30px;
+        li{transition: 0.3s;
+            cursor: pointer;
+            &:hover{
+                color: #ffad00;
+            }
+        }
+    }
+  }
+  &__top {
+    padding: 100px 150px;
+    color: white;
+    li {
+      color: rgba(128, 128, 128, 0.57);
+      font-size: 18px;
+    }
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    &__left {
+      display: flex;
+      justify-content: space-between;
+      .media {
+        .app {
+          position: relative;
+          transition: 0.2s;
+          &:hover {
+            img {
+              opacity: 1;
+              right: -70px;
+            }
+          }
+          img {
+            transition: 0.4s;
+            opacity: 0;
+            position: absolute;
+            right: 50px;
+            width: 150px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+              rgba(0, 0, 0, 0.12) 0px -12px 30px,
+              rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+              rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          }
+        }
+        li {
+          display: flex;
+          align-items: center;
+          transition: 0.2s;
+          &:hover {
+            color: $second-color;
+          }
+          i {
+            color: white;
+            margin-right: 15px;
+          }
+        }
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        li {
+          transition: 0.2s;
+          &:hover {
+            color: $second-color;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    &__right{
+        display: flex;flex-direction: column;
+        gap: 20px;
+        .agrement{
+            display: flex;align-items: center;
+            gap: 20px;
+            p{
+                margin-top: 15px;
+            }
+        }
+        .email{
+            button{
+                background-color: rgb(73, 73, 73);
+                color: white;
+                border-radius: 7px;
+                padding: 12px 30px;
+                margin-left: 10px;
+                border: none;
+                transition: 0.2s;
+                &:hover{
+                    background-color: rgb(42, 42, 42);
+                }
+            }
+            input{
+                background-color: $main-color;
+                padding: 10px;
+                border: 1px solid gray;
+                width: 60%;
+                border-radius: 5px;
+            }
+        }
+        p{
+            color: rgba(128, 128, 128, 0.57);
+      font-size: 18px;
+        }
+    }
+  }
+}
