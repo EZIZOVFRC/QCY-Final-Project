@@ -103,7 +103,7 @@ const Header = () => {
           <ul>
             <h5>About Us</h5>
             <li>
-              <Link>QCY history</Link>
+              <Link to={'story'}>QCY history</Link>
             </li>
             <li>
               <Link>Videos</Link>

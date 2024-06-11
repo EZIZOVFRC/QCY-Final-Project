@@ -5,6 +5,7 @@ import Dashboard from './../pages/admin/dashboard/dashboard';
 import Add from './../pages/admin/add/add';
 import Products from './../pages/admin/products/Products';
 import Basket from './../components/Basket/Basket';
+import QcyHistory from "../components/About/QcyHistory";
 
 
 
@@ -19,6 +20,9 @@ const ROUTES =[
             },{
                 path:'basket',
                 element:<Basket/>
+            },{
+                path:'story',
+                element:<QcyHistory/>
             }
         ]
     },
