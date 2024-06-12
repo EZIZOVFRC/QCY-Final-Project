@@ -21,10 +21,9 @@ const newsController = {
     },
     add: async (req, res) => {
         try {
-            const newnews = new news({ ...req.body })
-            await newnews.save()
-            const items = await news.find()
-            res.send(items)
+            const newheadphones = new news({ ...req.body,image:req.file.filename })
+            await newheadphones.save()
+            res.send('News Created bro')
         } catch (error) {
             res.status(404).send(error)
         }

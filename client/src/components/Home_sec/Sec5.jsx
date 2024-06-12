@@ -94,7 +94,7 @@ const Carousel = () => {
     }, [isTicking]);
 
     useEffect(() => {
-        setActiveIdx((length - (items[0] % length)) % length); // prettier-ignore
+        setActiveIdx((length - (items[0] % length)) % length);
     }, [items]);
 
     return (

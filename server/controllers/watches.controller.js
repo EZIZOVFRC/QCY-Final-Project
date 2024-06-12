@@ -21,10 +21,9 @@ const watchesController = {
     },
     add: async (req, res) => {
         try {
-            const newwatches = new watches({ ...req.body })
-            await newwatches.save()
-            const items = await watches.find()
-            res.send(items)
+            const newheadphones = new watches({ ...req.body,image:req.file.filename })
+            await newheadphones.save()
+            res.send('Watch Created bro')
         } catch (error) {
             res.status(404).send(error)
         }

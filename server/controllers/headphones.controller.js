@@ -23,8 +23,6 @@ const headphonesController = {
         try {
             const newheadphones = new headphones({ ...req.body,image:req.file.filename })
             await newheadphones.save()
-            // const items = await headphones.find()
-            // res.send(items)
             res.send('Item Created bro')
         } catch (error) {
             res.status(404).send(error)

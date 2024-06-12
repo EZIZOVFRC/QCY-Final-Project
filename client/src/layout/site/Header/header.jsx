@@ -68,7 +68,7 @@ const Header = () => {
             <Link>
               <i className="fa-solid fa-heart"></i>
             </Link>
-            <Link>
+            <Link to={'basket'}>
               <i className="fa-solid fa-cart-shopping"></i>
             </Link>
           </div>

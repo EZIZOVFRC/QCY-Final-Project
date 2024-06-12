@@ -1,0 +1,190 @@
+$second-color: #ffad00;
+.nws{
+    display: flex;
+    flex-direction: column;
+    padding: 150px;
+    justify-content: space-evenly;
+    gap: 30px;
+    img{
+        width: 150px;
+    }
+    $main-color: #111111;
+    h2{
+        font-size: 24px;
+        position: relative;
+        margin-bottom: 100px;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            
+            background-color: $second-color;
+            left: 0;
+            bottom: -40%;
+            height: 2px;
+          }
+
+    }
+
+
+    .nw{
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        margin-left: 50px;
+        display: flex;
+        gap: 50px;
+        padding: 20px;
+        &__dates{
+            h5{
+                font-size: 18px;
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 30px;
+                    
+                    background-color: $second-color;
+                    left: 0;
+                    bottom: -40%;
+                    height: 2px;
+                  }
+            }
+            p{
+                font-size: 14px;
+                width: 80%;
+                margin-top: 30px;
+            }
+        }
+    }
+}
+@mixin btn-border-drawing(
+  $color: #ccc,
+  $hover: black,
+  $width: 2px,
+  $vertical: top,
+  $horizontal: left,
+  $duration: 0.25s
+) {
+  transition: color $duration $duration/3, transform $duration;
+  position: relative;
+
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    #{$vertical}: 0;
+    #{$horizontal}: 0;
+  }
+
+  &::before {
+    $h-side: if($horizontal == "left", "right", "left");
+
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+
+  &::after {
+    $v-side: if($vertical == "top", "bottom", "top");
+
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+
+  &:hover {
+    color: black;
+    transform: scale(1.1);
+
+    &::before,
+    &::after {
+      border-color: black;
+      transition: border-color 0s, width $duration, height $duration;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      transition-delay: 0s, 0s, $duration;
+    }
+
+    &::after {
+      transition-delay: 0s, $duration, 0s;
+    }
+  }
+}
+
+.nw {
+  @include btn-border-drawing(#000000, #ffad00, 4px, bottom, right);
+}
+
+
+@mixin btn-border-drawing(
+  $color: #ccc,
+  $hover: black,
+  $width: 2px,
+  $vertical: top,
+  $horizontal: left,
+  $duration: 0.25s
+) {
+  transition: color $duration $duration/3, transform $duration;
+  position: relative;
+
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    #{$vertical}: 0;
+    #{$horizontal}: 0;
+  }
+
+  &::before {
+    $h-side: if($horizontal == "left", "right", "left");
+
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+
+  &::after {
+    $v-side: if($vertical == "top", "bottom", "top");
+
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+
+  &:hover {
+    color: black;
+
+
+    &::before,
+    &::after {
+      border-color: #ffad00;
+      transition: border-color 0s, width $duration, height $duration;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      transition-delay: 0s, 0s, $duration;
+    }
+
+    &::after {
+      transition-delay: 0s, $duration, 0s;
+    }
+  }
+}
+
+.tr {
+  transition: 0.2s;
+
+  @include btn-border-drawing(#ffad00, #ffad00, 4px, bottom, right);
+}

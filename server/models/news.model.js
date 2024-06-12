@@ -8,8 +8,8 @@ const news = mongoose.model("news", new mongoose.Schema({
     image: {
         type: String
     },
-    price: {
-        type: Number
+    date: {
+        type: String
     },
     desc: {
         type: String
