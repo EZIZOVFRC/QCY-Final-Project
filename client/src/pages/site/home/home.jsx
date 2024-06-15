@@ -8,6 +8,7 @@ import Sec4 from '../../../components/Home_sec/Sec4';
 import Sec5 from '../../../components/Home_sec/Sec5';
 import WhatchList from '../../../components/Watches/WatchList';
 import News from '../../../components/Home_sec/News';
+import { SideMenu} from '../../../components/FilterMenu/SideMenu';
 
     
     const Home = () => {

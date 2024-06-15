@@ -36,7 +36,7 @@ const Header = () => {
           <div className="nav__tabs col-5">
             <ul>
               <li>
-                <Link
+                <Link to={'products'}
                   className="product"
                   onMouseEnter={handleProductMouseEnter}
                   onMouseLeave={handleProductMouseLeave}
@@ -65,7 +65,7 @@ const Header = () => {
             </ul>
           </div>
           <div className="nav__cart">
-            <Link>
+            <Link to={'wishlist'}>
               <i className="fa-solid fa-heart"></i>
             </Link>
             <Link to={'basket'}>

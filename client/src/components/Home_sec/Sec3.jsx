@@ -6,7 +6,7 @@ const Sec3 = () => {
    <section className='sec3'>
     <div className="melobuds">
     <h2>QCY Melobuds ANC</h2>
-    <Link><i class="fa-solid fa-right-long"></i></Link>
+    <Link><i className="fa-solid fa-right-long"></i></Link>
     </div>
     
    </section>

@@ -1,0 +1,194 @@
+.wishlist{
+    
+    padding-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+    padding: 100px;
+    flex-wrap: wrap;
+    .mywish{
+      padding: 30px;
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        
+        span{
+          font-size: 24px;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        h5{
+          font-size: 24px;
+          color: black !important;
+          margin-bottom: 20px;
+        }
+        .del{
+          position: absolute;
+          right: 10%;
+          border: none;
+          font-size: 32px;
+          top: 5%;
+          background:none;
+          
+          
+      }
+        img {
+          margin-bottom: 20px;
+          cursor: pointer;
+          width: 250px;
+          height: 200px;
+          transition: 0.2s;
+          &:hover {
+            transform: scale(1.3) rotate(10deg);
+          }
+          position: relative;
+        }
+    }
+
+
+    @mixin btn-border-drawing(
+        $color: #ccc,
+        $hover: rgb(255, 255, 255),
+        $width: 2px,
+        $vertical: top,
+        $horizontal: left,
+        $duration: 0.25s
+      ) {
+        box-shadow: inset 0 0 0 $width $color;
+        color: $color;
+        transition: color $duration $duration/3;
+        position: relative;
+      
+        &::before,
+        &::after {
+          border: 0 solid transparent;
+          box-sizing: border-box;
+          content: "";
+          pointer-events: none;
+          position: absolute;
+          width: 0;
+          height: 0;
+      
+          #{$vertical}: 0;
+          #{$horizontal}: 0;
+        }
+      
+        &::before {
+          $h-side: if($horizontal == "left", "right", "left");
+      
+          border-#{$vertical}-width: $width;
+          border-#{$h-side}-width: $width;
+        }
+      
+        &::after {
+          $v-side: if($vertical == "top", "bottom", "top");
+      
+          border-#{$v-side}-width: $width;
+          border-#{$horizontal}-width: $width;
+        }
+      
+        &:hover {
+          color: $hover;
+      
+          &::before,
+          &::after {
+            border-color: $hover;
+            transition: border-color 0s, width $duration, height $duration;
+            width: 100%;
+            height: 100%;
+          }
+      
+          &::before {
+            transition-delay: 0s, 0s, $duration;
+          }
+      
+          &::after {
+            transition-delay: 0s, $duration, 0s;
+          }
+        }
+      }
+      
+      .mywish {
+        @include btn-border-drawing(#000000, #ffad00, 4px, bottom, right);
+      }}
+#wi{
+    h1{
+        text-align: center;
+        font-size: 64px;
+        padding-top: 130px;
+        font-family:  Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+}
+
+
+@mixin btn-border-drawing(
+  $color: #ccc,
+  $hover: rgb(255, 255, 255),
+  $width: 2px,
+  $vertical: top,
+  $horizontal: left,
+  $duration: 0.25s
+) {
+  box-shadow: inset 0 0 0 $width $color;
+  color: $color;
+  transition: color $duration $duration/3;
+  position: relative;
+
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    #{$vertical}: 0;
+    #{$horizontal}: 0;
+  }
+
+  &::before {
+    $h-side: if($horizontal == "left", "right", "left");
+
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+
+  &::after {
+    $v-side: if($vertical == "top", "bottom", "top");
+
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+
+  &:hover {
+    color: $hover;
+
+    &::before,
+    &::after {
+      border-color: $hover;
+      transition: border-color 0s, width $duration, height $duration;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      transition-delay: 0s, 0s, $duration;
+    }
+
+    &::after {
+      transition-delay: 0s, $duration, 0s;
+    }
+  }
+}
+
+.add {
+  border: none;
+  padding: 10px 30px;
+  font-size: 18px;
+  @include btn-border-drawing(#000000, #ffad00, 4px, bottom, right);
+}

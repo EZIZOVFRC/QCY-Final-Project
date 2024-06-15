@@ -28,26 +28,26 @@ const Footer = () => {
           <ul className="col-3 media">
             <h5>FOLLOW US</h5>
             <li className="app">
-              <i class="fa-regular fa-bookmark"></i>QCY App{" "}
+              <i className="fa-regular fa-bookmark"></i>QCY App{" "}
               <img
                 src="https://www.qcy.com/upfile/1687245041821961.jpg"
                 alt=""
               />
             </li>
             <li>
-              <i class="fa-brands fa-facebook-f"></i>Facebook
+              <i className="fa-brands fa-facebook-f"></i>Facebook
             </li>
             <li>
-              <i class="fa-brands fa-youtube"></i>YouTube
+              <i className="fa-brands fa-youtube"></i>YouTube
             </li>
             <li>
-              <i class="fa-brands fa-instagram"></i>Instagram
+              <i className="fa-brands fa-instagram"></i>Instagram
             </li>
             <li>
-              <i class="fa-brands fa-twitter"></i>Twitter
+              <i className="fa-brands fa-twitter"></i>Twitter
             </li>
             <li>
-              <i class="fa-brands fa-tiktok"></i>TikTok
+              <i className="fa-brands fa-tiktok"></i>TikTok
             </li>
           </ul>
         </div>

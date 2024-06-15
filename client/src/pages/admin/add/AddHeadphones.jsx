@@ -5,17 +5,16 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { Formik } from 'formik';
 
-const Add = () => {
-  const { data, setdata } = useContext(MainContext);
-
+const AddHeadphones = () => {
+  const { head, setHead } = useContext(MainContext);
   return (
     <main className="forum">
       <Helmet>
         <title>Add</title>
       </Helmet>
-      <div style={{ paddingTop: '100px' }} className="form">
-        <Formik  className='formik'
-          initialValues={{ image: null, title: "", desc: "", price: "" }}
+      <div className="form" style={{ paddingTop: '100px' }}>
+        <Formik
+          initialValues={{ title: "", desc: "", price: "", image: null }}
           onSubmit={(values, { setSubmitting, resetForm }) => {
             const formData = new FormData();
             formData.append('id', uuidv4());
@@ -24,12 +23,12 @@ const Add = () => {
             formData.append('desc', values.desc);
             formData.append('price', values.price);
 
-            axios.post("http://localhost:8080/api/watches", formData, {
+            axios.post("http://localhost:8080/api/headphones", formData, {
               headers: {
                 'Content-Type': 'multipart/form-data'
               }
             }).then((res) => {
-              setdata([...res.data]);
+              setHead([...res.data]);
               resetForm();
             }).catch((error) => {
               console.error("Error adding watch:", error);
@@ -50,8 +49,7 @@ const Add = () => {
             isSubmitting,
           }) => (
             <form onSubmit={handleSubmit}>
-              <h2>Add New Watch</h2>
-             
+              <h2>Add New Ear Buds</h2>
               <input
                 type="text"
                 name="title"
@@ -76,15 +74,13 @@ const Add = () => {
                 onBlur={handleBlur}
                 value={values.desc}
               />
-               <h5>Choose Photo</h5><input
-               className="file"
+              <input
                 type="file"
                 name="image"
                 onChange={(event) => {
                   setFieldValue("image", event.currentTarget.files[0]);
                 }}
                 onBlur={handleBlur}
-                placeholder="image..."
               />
               <button type="submit" disabled={isSubmitting}>
                 Submit
@@ -97,4 +93,4 @@ const Add = () => {
   );
 };
 
-export default Add;
+export default AddHeadphones;

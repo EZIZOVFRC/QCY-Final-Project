@@ -21,10 +21,9 @@ const earBudsController = {
     },
     add: async (req, res) => {
         try {
-            const newearBuds = new earBuds({ ...req.body })
-            await newearBuds.save()
-            const items = await earBuds.find()
-            res.send(items)
+            const newheadphones = new earBuds({ ...req.body,image:req.file.filename })
+            await newheadphones.save()
+            res.send('EarBud Created bro')
         } catch (error) {
             res.status(404).send(error)
         }

@@ -23,7 +23,7 @@ const Sec4 = () => {
   return (
     <>
     <div className="App">
-      <button onClick={handleOpenModal} className="openVideoBtn"><i class="fa-solid fa-play"></i></button>
+      <button onClick={handleOpenModal} className="openVideoBtn"><i className="fa-solid fa-play"></i></button>
       <h3>Be Creative Go Beyond!</h3>
       {isModalOpen && (
         <div className="modal">
@@ -38,7 +38,7 @@ const Sec4 = () => {
       )}
     </div>
     <button onClick={scrollToTop} className="scrollToTopBtn">
-    <i class="fa-solid fa-chevron-up"></i>
+    <i className="fa-solid fa-chevron-up"></i>
       Top
     </button>
     </>

@@ -1,0 +1,78 @@
+.prdct{
+    width: 90%;
+    font-size: 24px;
+    button{
+        border: none;
+        background:none;
+        transition: 0,2s;
+        i{
+            transition: 0.2s;
+            font-size: 32px;
+            &:hover{
+                transform: scale(1.5) ;
+                margin-left: -20px;
+                color: red;
+            }
+        }
+        }
+       
+    img{
+        width: 150px;
+    }
+    thead{
+        text-align: center;
+    }
+    tbody{
+        text-align: center;
+        td{
+            padding-top: 30px;
+        }
+    }
+}
+.forum{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 150px;
+    .file{
+        border: none;
+        
+    }
+    input{
+        background: transparent;
+        padding: 20px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        border: 2px solid white;
+        &::placeholder{
+            font-size: 24px;
+            color: white;
+        }
+    }
+}
+.form {
+    background-color: #ffad00;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    padding: 100px;
+    font-size: 24px;
+
+    
+
+    form{
+        h2{
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+        display: flex;
+        flex-direction: column;
+    }
+  }
+  
+
+  

@@ -6,6 +6,12 @@ import Add from './../pages/admin/add/add';
 import Products from './../pages/admin/products/Products';
 import Basket from './../components/Basket/Basket';
 import QcyHistory from "../components/About/QcyHistory";
+import WishList from "../components/WishList/WishList";
+import HeadphonesProducts from "../pages/admin/products/HeadphonesProducts";
+import EarbudsProduct from "../pages/admin/products/EarbudsProduct";
+import AddHeadphones from "../pages/admin/add/AddHeadphones";
+import AddEarbuds from "../pages/admin/add/AddEarbuds";
+import Product from './../components/FilterMenu/Products';
 
 
 
@@ -23,6 +29,15 @@ const ROUTES =[
             },{
                 path:'story',
                 element:<QcyHistory/>
+            },{
+                path:'wishlist',
+                element:<WishList/>
+            },{
+                path:'products',
+                element:<Product/>
+            },{
+                path:"products/:filter?",
+                 element:<Product/>
             }
         ]
     },
@@ -40,6 +55,18 @@ const ROUTES =[
             },{
                 path:'products',
                 element:<Products/>
+            },{
+                path:'hproducts',
+                element:<HeadphonesProducts/>
+            },{
+                path:'eproducts',
+                element:<EarbudsProduct/>
+            },{
+                path:'aheadphones',
+                element:<AddHeadphones/>
+            },{
+                path:'aearbuds',
+                element:<AddEarbuds/>
             }
         ]
     }

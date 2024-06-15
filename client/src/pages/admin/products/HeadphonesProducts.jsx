@@ -1,25 +1,25 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import MainContext from '../../../context/context';
-import './Products.scss'
-function Products() {
-  const { data, setdata } = useContext(MainContext);
+
+function HeadphonesProducts() {
+const {head,setHead}=useContext(MainContext)
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/watches")
+    axios.get("http://localhost:8080/api/headphones")
       .then(res => {
-        setdata(res.data);
+        setHead(res.data);
       })
       .catch(error => {
         console.error("Error fetching data:", error);
       });
-  }, [setdata])
+  }, [setHead]);
 
   const deleteData = (itemId) => {
-    axios.delete(`http://localhost:8080/api/watches/${itemId}`).then(() => {
-      const newData = data.filter((x) => x._id !== itemId); 
-      setdata(newData);
+    axios.delete(`http://localhost:8080/api/headphones/${itemId}`).then(() => {
+      const newData = head.filter((x) => x._id !== itemId);
+      setHead(newData);
     }).catch((error) => {
       console.error("Error deleting data:", error);
     });
@@ -30,7 +30,7 @@ function Products() {
       <Helmet>
         <title>Products</title>
       </Helmet>
-      <h1 style={{ paddingTop: '100px',textAlign:'center',fontSize:'42px' }}>Smart Watches</h1>
+      <h1 style={{ paddingTop: '100px',textAlign:'center',fontSize:'42px' }}>   Head Phones</h1>
       <div style={{ paddingTop: '100px' }}>
         <table className="table prdct">
           <thead>
@@ -43,11 +43,11 @@ function Products() {
           </thead>
           <tbody>
             {
-              data.map((item) => (
+            head.map((item) => (
                 <tr key={item._id}>
                   <th scope="row"><img src={`http://localhost:8080/public/${item.image}`} alt="" width={'70px'} /></th>
                   <td>{item.title}</td>
-                  <td>{item.price} $</td>
+                  <td>{item.price}</td>
                   <td><button onClick={() => deleteData(item._id)}><i className="fa-solid fa-delete-left"></i></button></td>
                 </tr>
               ))
@@ -59,4 +59,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default HeadphonesProducts;

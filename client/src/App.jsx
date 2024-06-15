@@ -7,6 +7,9 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("false");
   const [data, setdata] = useState([]);
+  const [head,setHead]=useState([])
+  const [ear,setEar]=useState([])
+  const [full,setFull]=useState([])
   
 
 
@@ -57,38 +60,60 @@ function App() {
 
   const [wishItems,setWishItems]=useState(localStorage.getItem('wishItems')?JSON.parse(localStorage.getItem('wishItems')):[])
 
-  const addToWish=(item)=>{
-      const target=wishItems.find((x)=>x.item._id==item._id)
-      if (!target) {
-          const newItem={
-              item:item,
-          }
-          setWishItems([...wishItems,newItem])
-          localStorage.setItem('wishItems',JSON.stringify(wishItems))
-          console.log('Added To Wishlist');
-          
-      }else{
-          setWishItems([...wishItems.filter((x)=>x.item._id!=item._id)])
-          localStorage.setItem('wishItems',JSON.stringify(wishItems.filter((x)=>x.item.id=item.id)))
-          console.log('Removed To Wishlist');
-      }
-  }
-
+  const addToWish = (item) => {
+    const target = wishItems.find((x) => x.item._id === item._id);
+    let newWishItems;
+  
+    if (!target) {
+      const newItem = { item: item };
+      newWishItems = [...wishItems, newItem];
+      console.log('Added To Wishlist');
+    } else {
+      newWishItems = wishItems.filter((x) => x.item._id !== item._id);
+      console.log('Removed From Wishlist');
+    }
+  
+    setWishItems(newWishItems);
+    localStorage.setItem('wishItems', JSON.stringify(newWishItems));
+  };
+  
 
   const router = createBrowserRouter(ROUTES);
   useEffect(() => {
     axios
       .get("http://localhost:8080/api/watches")
       .then((res) => {
-        setdata([...res.data]);
+        setFull(prevFull => [...prevFull, ...res.data]);
+        
       })
       .catch((err) => {
         setError(err);
       });
-  }, [])
-
-
-  const context = {deleteBasket, loading, setLoading, error, setError, data, setdata ,basketItems,setBasketItems,wishItems,setWishItems,addToBasket,deleteToBasket,addToWish};
+  }, []);
+  
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api/headphones")
+      .then((res) => {
+        setFull(prevFull => [...prevFull, ...res.data]);
+      })
+      .catch((err) => {
+        setError(err);
+      });
+  }, []);
+  
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api/earbuds")
+      .then((res) => {
+        setFull(prevFull => [...prevFull, ...res.data]);
+      })
+      .catch((err) => {
+        setError(err);
+      });
+  }, []);
+  
+  const context = {full,setFull,head,setHead,ear,setEar,deleteBasket, loading, setLoading, error, setError, data, setdata ,basketItems,setBasketItems,wishItems,setWishItems,addToBasket,deleteToBasket,addToWish};
   return (
     <>
       <MainContext.Provider value={context}>

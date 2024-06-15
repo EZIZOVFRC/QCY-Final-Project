@@ -1,0 +1,267 @@
+.SideMenu {
+  display: flex;
+  padding: 100px;
+  gap: 100px;
+}
+@mixin btn-border-drawing(
+  $color: #ccc,
+  $hover: rgb(255, 255, 255),
+  $width: 2px,
+  $vertical: top,
+  $horizontal: left,
+  $duration: 0.25s
+) {
+  box-shadow: inset 0 0 0 $width $color;
+  color: $color;
+  transition: color $duration $duration/3;
+  position: relative;
+
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    #{$vertical}: 0;
+    #{$horizontal}: 0;
+  }
+
+  &::before {
+    $h-side: if($horizontal == "left", "right", "left");
+
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+
+  &::after {
+    $v-side: if($vertical == "top", "bottom", "top");
+
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+
+  &:hover {
+    color: $hover;
+
+    &::before,
+    &::after {
+      border-color: $hover;
+      transition: border-color 0s, width $duration, height $duration;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      transition-delay: 0s, 0s, $duration;
+    }
+
+    &::after {
+      transition-delay: 0s, $duration, 0s;
+    }
+  }
+}
+
+.side {
+  @include btn-border-drawing(#00000000, #ffad00, 4px, bottom, right);
+}
+.side {
+  border: 2px solid white !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  h3 {
+    color: black;
+    font-size: 18px;
+    text-align: center;
+  }
+  p {
+    font-size: 24px;
+    color: #ffad00;
+  }
+  .del {
+    font-size: 32px;
+    position: absolute;
+    right: 10%;
+    top: 5%;
+  }
+  .add {
+    i {
+      transition: 0.6s;
+    }
+  }
+  .add:hover {
+    transition: 0.2s;
+    i {
+      margin-left: 10px;
+      transform: scale(1.1);
+    }
+  }
+  img {
+    width: 230px;
+    height: 230px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    border-radius: 50px;
+    &:hover {
+      transform: scale(1.2) rotate(10deg);
+    }
+  }
+}
+.sd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  height: 70vh;
+  overflow-y: scroll;
+}
+.filtr {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  h1 {
+    u {
+      color: #ffad00;
+      font-size: 32px;
+    }
+  }
+  button {
+    width: 200px;
+    display: flex;
+    border: none;
+    justify-content: left;
+    align-items: center;
+    font-size: 24px;
+    gap: 20px;
+    background: none;
+    transition: 0.3s;
+    &:hover {
+      color: #ffad00;
+      transform: scale(1.1);
+    }
+    img {
+      width: 50px;
+      border-radius: 50%;
+    }
+  }
+}
+.link {
+  margin: 50px 110px;
+  a {
+    font-size: 24px;
+    color: gray !important;
+  }
+  i {
+    font-size: 24px;
+    color: gray !important;
+    margin: 0px 10px;
+  }
+}
+
+
+// ----------------sec2
+$main-color: #111111;
+$second-color: #ffad00;
+.product2{
+    padding: 0px 150px 50px;
+    
+    img{
+        width: 300px;
+        height:300px ;
+        border-radius: 5px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    h2{
+        font-size: 44px;
+        width: 60%;
+        margin-bottom: 50px;
+        text-align: center;
+        
+    }
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;align-items: center;
+    &__body{
+        display: flex;
+        &__left{
+            border-right: 10px solid black;
+            padding: 0px 50px;
+            padding-top: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+            &__card{
+                display: flex;
+                justify-content: center;align-items: center;
+                
+                gap: 40px;
+                h3{font-size: 28px;
+                    text-align: left;
+                    position: relative;
+                    &::after {
+                        content: ' ';
+                        background-color: $second-color;
+                        position: absolute;
+                        top: 40px;
+                        width: 20%;
+                        height: 2px;
+                        left: 10%;
+                        transform: translateX(-50%);
+                        transition: width 0.2s ease-out;
+                    }
+                    p{
+                        margin-top: 20px;
+                        font-size: 16px;
+                        color: rgb(82, 82, 82);
+                    }
+                }
+
+            }
+        }
+        &__right{
+            padding: 50px;
+        }
+        &__right{
+            padding-top: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 100px;
+            &__card{
+                display: flex;
+                justify-content: center;align-items: center;
+                
+                gap: 40px;
+                h3{font-size: 28px;
+                    text-align: left;
+                    position: relative;
+                    &::after {
+                        content: ' ';
+                        background-color: $second-color;
+                        position: absolute;
+                        top: 40px;
+                        width: 20%;
+                        height: 2px;
+                        left: 10%;
+                        transform: translateX(-50%);
+                        transition: width 0.2s ease-out;
+                    }
+                    p{
+                        margin-top: 20px;
+                        font-size: 16px;
+                        color: rgb(82, 82, 82);
+                    }
+                }
+
+            }
+        }
+    }
+}
