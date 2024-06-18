@@ -49,7 +49,7 @@ const Sec2 = () => {
                 Compact and lightweight.
               </p>
               <div className="links">
-                <Link to="/products/watches">
+                <Link to="/products/Watches">
                   More<i className="fa-solid fa-right-long"></i>
                 </Link>
               </div>

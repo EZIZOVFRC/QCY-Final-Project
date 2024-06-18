@@ -1,0 +1,92 @@
+.allNews{
+    .link{
+        justify-content: start !important;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;align-items: center;
+    &__sec1{
+        
+        display: flex;justify-content: center;align-items: center;
+        padding-top: 100px;
+        width: 80%;
+        border-image: fill 0 linear-gradient(rgba(0, 0, 0, 0),#0000007b);
+        img{
+            width: 100%;
+            position: relative;
+            z-index: -200;
+            
+            
+        }
+        h3{
+            position: absolute;
+            left: 20%;
+            bottom: 25%;
+            font-size: 34px;
+            width: 40%;
+            color: white;
+            text-shadow: rgb(221, 0, 255) 1px 0 10px;
+            
+
+        }
+    }
+}
+
+.news2{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 70px;
+    justify-content: center;
+    gap: 60px;
+    
+
+    .newCard{
+        border-radius: 10px;
+        padding: 20px;
+        transition: 0.2s;
+        &:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+        h5{
+            color: black;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: 200px;
+            transition: 0.2s;
+           
+        }
+    }
+  
+    span{
+        color: #ffaa0d;
+        font-size: 24px;
+        margin: 20px 0px;
+    }
+    p{
+        font-size: 14px;
+        color: rgb(69, 69, 69);
+    }
+}
+.newsMain{
+    h1{
+        font-size: 44px;
+        margin-left: 105px;
+        margin-top: 50px;
+    }
+    h2{
+        font-size: 24px;
+        margin-left: 180px;
+        margin-top: 50px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid gray;
+        width: 76%;
+    }
+}

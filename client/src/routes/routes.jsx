@@ -12,6 +12,10 @@ import EarbudsProduct from "../pages/admin/products/EarbudsProduct";
 import AddHeadphones from "../pages/admin/add/AddHeadphones";
 import AddEarbuds from "../pages/admin/add/AddEarbuds";
 import Product from './../components/FilterMenu/Products';
+import LoadingPage from "../pages/LoadingPage/LoadingPage";
+import News from "../components/News/News";
+import Contact from "../components/Contact/Contact";
+
 
 
 
@@ -38,6 +42,12 @@ const ROUTES =[
             },{
                 path:"products/:filter?",
                  element:<Product/>
+            },{
+                path:'news',
+                element:<News/>
+            },{
+                path:'contact',
+                element:<Contact/>
             }
         ]
     },
@@ -70,7 +80,11 @@ const ROUTES =[
             }
         ]
     }
-    ,    {
+    , ,
+    {
+      path: "/loading",
+      element: <LoadingPage/>
+    },   {
         path:"*",
         element:<Error/>,
         

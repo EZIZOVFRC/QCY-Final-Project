@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ProductsSec2 = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <section className="product2">
-      <h2>Come witness the landmarks we've achieved on our journey.</h2>
+      <h2 className="pm">Come witness the landmarks we've achieved on our journey.</h2>
       <div className="product2__body">
         <div className="product2__body__left col-6">
-          <div className="product2__body__left__card">
+          <div className="product2__body__left__card" data-aos="fade-right" data-aos-duration="500">
             <h3>
-              2022{" "}
+              2022
               <p>
                 In 2022, QCY Q1 ranked fourth in the global true wireless
                 Bluetooth headphone market share.
@@ -19,9 +25,9 @@ const ProductsSec2 = () => {
               alt=""
             />
           </div>
-          <div className="product2__body__left__card">
+          <div className="product2__body__left__card" data-aos="fade-right" data-aos-duration="500">
             <h3>
-              2020{" "}
+              2020
               <p>
                 QCY ranked 4th in global true wireless Bluetooth headset market
                 share in the first quarter, with total shipments reaching 2.5
@@ -32,12 +38,12 @@ const ProductsSec2 = () => {
           </div>
         </div>
         {/* ------------- */}
-        <div className="product2__body__right col-6">
-          <div className="product2__body__right__card">
+        <div className="product2__body__right col-6" >
+          <div className="product2__body__right__card" data-aos="fade-left" data-aos-duration="500">
             <h3>
-              2021{" "}
+              2021
               <p>
-              The QCY brand has evolved.Established Shenzhen Yixang Electronic Commerce Co., Ltd., a wholly owned subsidiary.
+                The QCY brand has evolved. Established Shenzhen Yixang Electronic Commerce Co., Ltd., a wholly owned subsidiary.
               </p>
             </h3>
             <img
@@ -45,11 +51,11 @@ const ProductsSec2 = () => {
               alt=""
             />
           </div>
-          <div className="product2__body__right__card">
+          <div className="product2__body__right__card" data-aos="fade-left" data-aos-duration="500"> 
             <h3>
-              2019{" "}
+              2019
               <p>
-              QCY ranked 5th in global true wireless Bluetooth earphone market share in the first half of the year.
+                QCY ranked 5th in global true wireless Bluetooth earphone market share in the first half of the year.
               </p>
             </h3>
             <img

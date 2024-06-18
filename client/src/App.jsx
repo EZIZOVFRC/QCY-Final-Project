@@ -10,6 +10,7 @@ function App() {
   const [head,setHead]=useState([])
   const [ear,setEar]=useState([])
   const [full,setFull]=useState([])
+  const [news, setnews] = useState([]);
   
 
 
@@ -112,8 +113,18 @@ function App() {
         setError(err);
       });
   }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api/news")
+      .then((res) => {
+        setnews([...res.data])
+      })
+      .catch((err) => {
+        setError(err)
+      })
+  }, [])
   
-  const context = {full,setFull,head,setHead,ear,setEar,deleteBasket, loading, setLoading, error, setError, data, setdata ,basketItems,setBasketItems,wishItems,setWishItems,addToBasket,deleteToBasket,addToWish};
+  const context = {full,news,setnews,setFull,head,setHead,ear,setEar,deleteBasket, loading, setLoading, error, setError, data, setdata ,basketItems,setBasketItems,wishItems,setWishItems,addToBasket,deleteToBasket,addToWish};
   return (
     <>
       <MainContext.Provider value={context}>

@@ -8,7 +8,7 @@ import Sec4 from '../../../components/Home_sec/Sec4';
 import Sec5 from '../../../components/Home_sec/Sec5';
 import WhatchList from '../../../components/Watches/WatchList';
 import News from '../../../components/Home_sec/News';
-import { SideMenu} from '../../../components/FilterMenu/SideMenu';
+import WhiteBlack from '../../../components/Home_sec/WhiteBlack';
 
     
     const Home = () => {
@@ -21,12 +21,16 @@ import { SideMenu} from '../../../components/FilterMenu/SideMenu';
             <title>HOME</title>
         </Helmet>
                <Sec1/>
+               
                <Sec2/>
                <WhatchList data={data}/>
+               <WhiteBlack/>
                <Sec3/>
                <Sec4/>
                <Sec5/>
                <News/>
+               
+
               
                
         </>

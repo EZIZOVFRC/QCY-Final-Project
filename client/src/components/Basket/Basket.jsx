@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import MainContext from '../../context/context';
 import './Basket.scss';
+import Contact from '../Contact/Contact';
 
 const Basket = () => {
   const { addToBasket, deleteToBasket, basketItems, deleteBasket } = useContext(MainContext);

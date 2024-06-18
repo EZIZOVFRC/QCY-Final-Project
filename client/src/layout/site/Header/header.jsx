@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Header.scss";
 import { Link } from "react-router-dom";
+import News from "../../../components/News/News";
 
 const Header = () => {
   const [isProductHovered, setIsProductHovered] = useState(false);
@@ -45,7 +46,7 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link
+                <Link to={'story'}
                   className="about"
                   onMouseEnter={handleAboutMouseEnter}
                   onMouseLeave={handleAboutMouseLeave}
@@ -54,13 +55,13 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link>NEWS</Link>
+                <Link to={'news'}>NEWS</Link>
               </li>
               <li>
                 <Link>BLOG</Link>
               </li>
               <li>
-                <Link>CONTACT US</Link>
+                <Link to={'contact'}>CONTACT US</Link>
               </li>
             </ul>
           </div>
@@ -83,13 +84,13 @@ const Header = () => {
           <ul>
             <h5>Category</h5>
             <li>
-              <Link>Earbuds</Link>
+              <Link to="/products/earbuds">Earbuds</Link>
             </li>
             <li>
-              <Link>Smart Watches</Link>
+              <Link to="/products/Watches">Smart Watches</Link>
             </li>
             <li>
-              <Link>Headphones</Link>
+              <Link to="/products/headphones">Headphones</Link>
             </li>
           </ul>
         </div>

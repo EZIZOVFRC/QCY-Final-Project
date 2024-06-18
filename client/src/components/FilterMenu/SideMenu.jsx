@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import MainContext from "../../context/context";
 
+import LoadingPage from "../../pages/LoadingPage/LoadingPage";
+
 
 export function Filtre(props) {
   return (
@@ -22,12 +24,14 @@ export function Filtre(props) {
 }
 
 export function SideMenu({initialFilter}) {
-  const { full, addToWish, addToBasket } = useContext(MainContext);
+  const { full, addToWish, addToBasket,loading,setLoading } = useContext(MainContext);
   const [filtre, setFiltre] = useState(initialFilter);
   const [filtreliVeri, setFiltreliVeri] = useState(full);
   const [showToast, setShowToast] = useState(false);
 
+
   useEffect(() => {
+    setLoading(true); 
     let filtreliData = full;
     if (filtre === "earbuds") {
       filtreliData = full.filter(item => item.desc.includes("earbuds"));
@@ -37,6 +41,7 @@ export function SideMenu({initialFilter}) {
       filtreliData = full.filter(item => item.title.includes("Watches"));
     }
     setFiltreliVeri(filtreliData);
+    setLoading(false); 
   }, [filtre, full]);
 
   const handleAddToWish = (item) => {
@@ -57,6 +62,10 @@ export function SideMenu({initialFilter}) {
     const wishList = JSON.parse(localStorage.getItem('wishList')) || [];
     return wishList.includes(item._id);
   };
+
+  if (loading) {
+    return <LoadingPage />; 
+  }
 
   return (
     <div className="SideMenu">

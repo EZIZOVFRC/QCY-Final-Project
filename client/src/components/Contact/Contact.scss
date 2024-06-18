@@ -1,0 +1,226 @@
+.contact_sec2 {
+  padding: 150px;
+  display: flex;
+  gap: 50px;
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    h2 {
+      font-size: 38px;
+      padding-left: 30px;
+      margin-bottom: 40px;
+      padding-top: 50px;
+    }
+    &__cards {
+        width: 80%;
+        display: flex;
+        gap: 30px;
+        border-bottom: 1px solid rgba(70, 70, 70, 0.56);
+        margin-left: 30px;
+        padding-bottom: 30px;
+        &__info{
+            h5{
+                font-weight: bold;
+                font-size: 28px;
+            }
+            span,p{
+                
+                color: gray;
+                margin-bottom: 10px;
+                font-size: 14px;
+            }
+            display: flex;
+            flex-direction: column;
+            justify-content: center;align-items: start;
+        }
+        i{
+            font-size: 44px;
+            background-color: orange;
+            color: white;
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            text-align: center;
+            display: flex;justify-content: center;align-items: center;
+        }
+        .fa-map-location-dot{
+            width: 125px;
+        }
+    }
+  }
+  &__right {
+    background-color: rgba(255, 166, 0, 0.079);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 20px;
+    padding:50px;
+    
+    
+
+    @mixin btn-border-drawing(
+        $color: #ccc,
+        $hover: rgb(255, 255, 255),
+        $width: 2px,
+        $vertical: top,
+        $horizontal: left,
+        $duration: 0.25s
+      ) {
+        box-shadow: inset 0 0 0 $width $color;
+        color: $color;
+        transition: color $duration $duration/3;
+        position: relative;
+      
+        &::before,
+        &::after {
+          border: 0 solid transparent;
+          box-sizing: border-box;
+          content: "";
+          pointer-events: none;
+          position: absolute;
+          width: 0;
+          height: 0;
+      
+          #{$vertical}: 0;
+          #{$horizontal}: 0;
+        }
+      
+        &::before {
+          $h-side: if($horizontal == "left", "right", "left");
+      
+          border-#{$vertical}-width: $width;
+          border-#{$h-side}-width: $width;
+        }
+      
+        &::after {
+          $v-side: if($vertical == "top", "bottom", "top");
+      
+          border-#{$v-side}-width: $width;
+          border-#{$horizontal}-width: $width;
+        }
+      
+        &:hover {
+          color: $hover;
+      
+          &::before,
+          &::after {
+            border-color: $hover;
+            transition: border-color 0s, width $duration, height $duration;
+            width: 100%;
+            height: 100%;
+          }
+      
+          &::before {
+            transition-delay: 0s, 0s, $duration;
+          }
+      
+          &::after {
+            transition-delay: 0s, $duration, 0s;
+          }
+        }
+      }
+      
+      button {
+        &:hover{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 20px;
+        }
+        width: 30%;
+        font-size: 24px;
+        border: white !important;
+        background-color: orange;
+        color: white !important;
+        padding: 20px 30px;
+        @include btn-border-drawing(#000000, #ffffff, 3px, bottom, right);
+      }}
+    h3{
+        font-size: 34px;
+    }
+    label{
+        font-size: 24px;
+        
+    }
+    input {
+        background-color: rgba(255, 166, 0, 0.192);
+        border-radius: 15px;
+        font-size: 18px;
+        border: 1px solid black;
+        transition: 0.2s;
+        &:hover{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 20px;
+        }
+      &::placeholder {
+        font-size: 18px;
+      }
+      padding: 20px;
+    }
+    textarea {
+      padding: 20px;
+      background-color: rgba(255, 166, 0, 0.192);
+        border-radius: 15px;
+        font-size: 18px;
+        border: 1px solid black;
+        height: 200px;
+      &::placeholder {
+        font-size: 18px;
+      }
+    }
+  }
+
+.contact_sec1 {
+  background-image: url(https://www.qcy.com/upfile/1686564080899511.jpg);
+  height: 90vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.468);
+    z-index: 3;
+  }
+  h1 {
+    position: absolute;
+    top: 40%;
+    color: white;
+    font-size: 64px;
+    z-index: 5;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(255, 255, 255),
+      0 0 0.2em rgb(255, 255, 255);
+  }
+  p {
+    z-index: 6;
+    top: 60%;
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(255, 255, 255),
+      0 0 0.2em rgb(12, 12, 12);
+  }
+}
+
+
+// -------------faq
+
+.rs-panel-group{
+  width: 60%;
+  .rs-panel-btn-icon{
+    color: orange;
+    font-size: 34px;
+  }
+  span{
+    font-size: 24px;
+    padding: 10px;
+  }
+  p{
+    font-size: 18px;
+    color: rgba(68, 68, 68, 0.679);
+  }
+}
