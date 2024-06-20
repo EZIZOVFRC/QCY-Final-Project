@@ -5,6 +5,8 @@ import './Products.scss'
 import { Link, useParams } from 'react-router-dom'
 import ProductsSec2 from './ProductsSec2'
 import AnimatedText from '../AnimatedText/AnimatedText'
+import ScrollButton from '../ScrollButton/ScrollButton'
+import FAQ from '../Contact/FAQ'
 const Products = () => {
   const { filter } = useParams();
   return (
@@ -14,6 +16,8 @@ const Products = () => {
         <AnimatedText/>
         <SideMenu initialFilter={filter || "earbuds"}/>
         <ProductsSec2/>
+        <ScrollButton/>
+        <FAQ/>
     </main>
   )
 }

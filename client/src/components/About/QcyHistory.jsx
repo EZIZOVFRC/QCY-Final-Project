@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./QcyHistory.scss";
 import video from "../../../public/Videos/story.mp4";
+import ScrollButton from "../ScrollButton/ScrollButton";
 
 const QcyHistory = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -170,6 +171,7 @@ const QcyHistory = () => {
           <span>The name of this magical elephant is'Imagery'.</span>
         </div>
       </section>
+      <ScrollButton/>
     </main>
   );
 };

@@ -1,15 +1,8 @@
 import React, { useState } from 'react';
 import './Sec4.scss';
 import video from '../../../public/Videos/yoxlanis 2.mp4';
-
+import ScrollButton from '../ScrollButton/ScrollButton';
 const Sec4 = () => {
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -37,10 +30,7 @@ const Sec4 = () => {
         </div>
       )}
     </div>
-    <button onClick={scrollToTop} className="scrollToTopBtn">
-    <i className="fa-solid fa-chevron-up"></i>
-      Top
-    </button>
+<ScrollButton/>
     </>
   );
 };

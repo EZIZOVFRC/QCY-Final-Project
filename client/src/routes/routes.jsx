@@ -15,6 +15,7 @@ import Product from './../components/FilterMenu/Products';
 import LoadingPage from "../pages/LoadingPage/LoadingPage";
 import News from "../components/News/News";
 import Contact from "../components/Contact/Contact";
+import DetailPage from "../components/DetailPage/DetailPage";
 
 
 
@@ -48,6 +49,9 @@ const ROUTES =[
             },{
                 path:'contact',
                 element:<Contact/>
+            },{
+                path:'/detail/:id',
+                element:<DetailPage/>
             }
         ]
     },

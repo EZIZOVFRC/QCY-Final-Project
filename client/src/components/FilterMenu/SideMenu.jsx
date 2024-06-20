@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import MainContext from "../../context/context";
 
 import LoadingPage from "../../pages/LoadingPage/LoadingPage";
+import { Link } from "react-router-dom";
 
 
 export function Filtre(props) {
@@ -75,7 +76,8 @@ export function SideMenu({initialFilter}) {
           const heartColor = isItemInWishList(item) ? 'red' : '';
           return (
             <div key={index} className="side col-3">
-              <img src={`http://localhost:8080/public/${item.image}`} width={'100px'} alt="" />
+              <Link to={`/detail/${item._id}`}><img src={`http://localhost:8080/public/${item.image}`} width={'100px'} alt="" /></Link>
+              
               <h3>{item.title}</h3>
               <p>{item.price}$</p>
               <button className='add' onClick={() => addToBasket(item)}>Add To Cart<i class="fa-solid fa-cart-plus"></i></button>
