@@ -9,6 +9,7 @@ import ProductDetail from "../ProductDetail";
 import ScrollButton from './../../ScrollButton/ScrollButton';
 import FAQ from "../../Contact/FAQ";
 import WhiteBlack from "../../Home_sec/WhiteBlack";
+import LoadingPage from './../../../pages/LoadingPage/LoadingPage';
 
 const ImageSlider = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ const ImageSlider = () => {
   const [isWishAdded, setIsWishAdded] = useState(false);
   const [inCartCount, setInCartCount] = useState(0);
   const [mainImage, setMainImage] = useState(
-    "https://us.qcy.com/cdn/shop/files/qcy-h3-qcy-official-3.jpg?v=1708937055&width=800"
+    "https://us.qcy.com/cdn/shop/products/qcy-h3-qcy-official-2.jpg?v=1708937054&width=800"
   );
 
   const images = [
@@ -54,7 +55,7 @@ const ImageSlider = () => {
     }
   }, [detail]);
 
-  if (!detail) return <p>Loading...</p>;
+  if (!detail) return <LoadingPage/>
 
   const addToBasket = (item, count) => {
     const target = basketItems.find((x) => x.item._id === item._id);
@@ -94,7 +95,7 @@ const ImageSlider = () => {
   const settings = {
     vertical: true,
     verticalSwiping: true,
-    slidesToShow: 5,
+    slidesToShow: 4.75,
     slidesToScroll: 1,
     focusOnSelect: true,
     beforeChange: (current, next) => setMainImage(images[next]),

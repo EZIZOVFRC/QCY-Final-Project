@@ -8,6 +8,6 @@ router.get("/", headphonesController.getAll)
 router.get("/:id", headphonesController.getById)
 router.post("/",upload.single('image'), headphonesController.add)
 router.delete("/:id", headphonesController.delete)
-router.put("/:id", headphonesController.edit)
+router.put("/:id",upload.single('image'), headphonesController.edit)
 
 module.exports = router

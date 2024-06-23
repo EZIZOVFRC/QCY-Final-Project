@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import MainContext from '../../context/context';
 import './Watches.scss';
+import { Link } from 'react-router-dom';
 
 function WatchCard({ item }) {
   const { addToBasket, addToWish } = useContext(MainContext);
@@ -30,7 +31,8 @@ function WatchCard({ item }) {
 
   return (
     <div className='watch col-4'>
-      <img src={`http://localhost:8080/public/${item.image}`} alt="" width={'100px'} />
+      <Link to={`/detail/${item._id}`}><img src={`http://localhost:8080/public/${item.image}`} alt="" width={'100px'} /></Link>
+      
       <span>{item.title}</span>
       <h5>{item.price}$</h5>
       <button className='add' onClick={() => addToBasket(item)}>Add To Cart</button>

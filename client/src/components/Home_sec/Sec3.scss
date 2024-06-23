@@ -61,3 +61,55 @@ $second-color: #ffad00;
   ::-webkit-scrollbar-thumb:hover {
     background: black; 
   }
+
+
+  
+@media only screen and (max-width: 1000px) {
+  .sec3{
+    background-position: center;
+    height: 80vh;
+    .melobuds{
+        right: 20%;
+        gap: 40px;
+        h2{
+            font-size: 32px;
+        }
+        a{width: 70px;
+            font-size: 18px;
+            padding: 5px 25px;
+            
+        }
+    }
+    
+    
+
+}}
+
+@media only screen and (max-width: 500px) {
+  .scrollToTopBtn{
+    right: 2% !important;
+    font-size: 12px !important;
+  }
+  .sec3{
+    background-position: left;
+    height: 60vh;
+    .melobuds{
+      background-color: rgba(32, 32, 32, 0.49);
+      width: 100%;
+      bottom: 0%;
+      left: 0%;
+        gap: 40px;
+        h2{
+            font-size: 32px;
+            color: white;
+        }
+        a{width: 70px;
+            font-size: 18px;
+            padding: 5px 25px;
+            
+        }
+    }
+    
+    
+
+}}

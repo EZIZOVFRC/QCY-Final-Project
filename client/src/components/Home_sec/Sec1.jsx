@@ -2,13 +2,15 @@ import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import './Sec1.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 const Sec1 = () => {
   return (
     <>
     <section className='sec1'>
     <Carousel fade touch>
       <Carousel.Item className='item1'>
-        <img src="https://www.qcy.com/upfile/1697534191211653.jpg" alt="" />
+        <Link to={'/detail/666bf1224d5db32b64a88134'}>        <img src="https://www.qcy.com/upfile/1697534191211653.jpg" alt="" /></Link>
+
         <Carousel.Caption className='cap1'>
           <h3>QCY H3</h3>
           <p>Enjoy Tranquil Night!</p>

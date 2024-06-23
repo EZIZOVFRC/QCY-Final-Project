@@ -124,3 +124,42 @@ $second-color: #ffad00;
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1000px) {
+  .before-after-slider{
+    width: 130% !important;
+    
+  }
+.before-after-slider__delimiter{
+  background-color: black !important;
+}
+.be{
+  padding-bottom: 100px;
+  width: 80%;
+  h1{
+      margin-left: 80px;
+      font-size: 44px !important;
+  }
+}
+}
+
+@media only screen and (max-width: 500px) {
+.be{
+  display: none !important;
+}}

@@ -146,3 +146,158 @@ nav {
         }
     }
 }
+// --------------------
+.off{
+    display: none !important;
+    background: none !important;
+    border: none !important;
+    font-size: 44px !important;
+    margin-right: 30px;
+}
+.offcanvas-start {
+    background-color:#111111 !important;
+    width: 100% !important;
+
+    .offcanvas-header {
+      background-color: #343a40;
+      color: white;
+      h5{
+        font-size: 42px !important;
+      }
+
+      .offcanvas-title {
+        padding-left: 30px;
+        font-size: 4.5rem;
+      }
+
+      .btn-close {
+        color: white !important;
+        padding-left: 20px;
+        font-size: 24px;
+      }
+    }
+
+    .offcanvas-body {
+        padding-top: 30px !important;
+      padding: 1rem;
+
+      a {
+        display: block;
+        margin-bottom: 1rem;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .offcanvas {
+    background-color: #111111;
+    color: white;
+
+    .offcanvas-header {
+      h5 {
+        padding-left: 30px;
+        font-size: 24px;
+      }
+    }
+
+    .offcanvas-body {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-left: 40px;
+
+      a {
+        font-size: 20px;
+        color: white;
+        transition: 0.2s;
+        cursor: pointer;
+
+        &:hover {
+          color: #ffad00;
+        }
+      }
+    }
+  }
+
+  .off-btn {
+    padding-right: 100px;
+    display: flex !important;
+    background: transparent;
+    border: none;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      color: white;
+      font-size: 32px;
+    }
+  }
+@media only screen and (max-width: 1000px) {
+    .nav {
+.off{
+    display: block !important;
+}
+  
+      &__logo {
+        img {
+          width: 100%;
+        }
+      }
+  
+      &__cart {
+        display: none;
+        width: 15%;
+  
+        a {
+          i {
+            font-size: 24px;
+            color: white;
+            transition: 0.3s;
+  
+            &:hover {
+              font-size: 32px;
+              color: #ffad00;
+            }
+          }
+        }
+      }
+  
+      &__tabs {
+        display: none;
+      }
+    }
+  
+  }
+  
+
+
+  @media only screen and (max-width: 400px) {
+    .nav {
+      .off{
+        display: none !important;
+        background: none !important;
+        border: none !important;
+        font-size: 24px !important;
+        margin-right: 30px;
+    }
+      height: 50px;
+.off{
+    display: block !important;
+}
+  
+      &__logo {
+        img {
+          width: 100px;
+          height: 50px;
+        }
+      }
+  
+      &__tabs {
+        display: none;
+      }
+    }
+  
+  }
+  

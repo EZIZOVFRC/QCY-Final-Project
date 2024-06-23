@@ -188,3 +188,93 @@ $second-color: #ffad00;
 
   @include btn-border-drawing(#ffad00, #ffad00, 4px, bottom, right);
 }
+
+
+
+@media only screen and (max-width: 1200px){
+  .nws{
+    padding: 50px;
+    gap: 20px;
+    img{
+        width: 120px;
+    }
+    h2{
+        font-size: 20px;
+        position: relative;
+        margin-bottom: 30px;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            
+            background-color: $second-color;
+            left: 0;
+            bottom: -40%;
+            height: 2px;
+          }
+
+    }
+
+
+    .nw{
+        margin-left: 20px;
+        gap: 30px;
+        padding: 20px;
+        &__dates{
+            h5{
+                font-size: 18px;
+                
+            }
+            p{
+                font-size: 14px;
+                width: 100%;
+                margin-top: 30px;
+            }
+        }
+    }
+}
+}
+
+@media only screen and (max-width: 500px){
+  .nws{
+    padding: 20px;
+    gap: 10px;
+    img{
+        width: 80px;
+        padding: 30px 0px;
+    }
+    h2{
+        font-size: 20px;
+        position: relative;
+        margin-bottom: 30px;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            
+            background-color: $second-color;
+            left: 0;
+            bottom: -40%;
+            height: 2px;
+          }
+
+    }
+
+
+    .nw{
+        gap: 20px;
+        padding: 10px;
+        &__dates{
+            h5{
+                font-size: 14px;
+                
+            }
+            p{
+                font-size: 10px;
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+}

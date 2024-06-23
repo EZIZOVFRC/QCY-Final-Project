@@ -41,7 +41,7 @@ const headphonesController = {
     edit: async (req, res) => {
         try {
             const { id } = req.params
-            await headphones.findByIdAndUpdate(id, { ...req.body })
+            await headphones.findByIdAndUpdate(id, { ...req.body,image:req.file.filename })
             const items = await headphones.find()
             res.send(items)
         } catch (error) {

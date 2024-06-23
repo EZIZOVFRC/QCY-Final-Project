@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import "./Header.scss";
 import { Link } from "react-router-dom";
-import News from "../../../components/News/News";
+import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+
 
 const Header = () => {
   const [isProductHovered, setIsProductHovered] = useState(false);
   const [isAboutHovered, setIsAboutHovered] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleProductMouseEnter = () => {
     setIsProductHovered(true);
@@ -73,6 +79,32 @@ const Header = () => {
               <i className="fa-solid fa-cart-shopping"></i>
             </Link>
           </div>
+          <Button className="off" variant="primary" onClick={handleShow}>
+          <i class="fa-solid fa-bars"></i>
+      </Button>
+
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Menu</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+        <Link to={''}  onClick={handleClose}>
+            HOME
+          </Link>
+        <Link to={'/products'} className="product" onClick={handleClose}>
+            PRODUCTS
+          </Link>
+          <Link to={'/story'} className="about" onClick={handleClose}>
+            ABOUT QCY
+          </Link>
+          <Link to={'/news'} onClick={handleClose}>
+            NEWS
+          </Link>
+          <Link to={'/contact'} onClick={handleClose}>
+            CONTACT US
+          </Link>
+        </Offcanvas.Body>
+      </Offcanvas>
         </div>
         <div
           className="acordion"
@@ -114,6 +146,7 @@ const Header = () => {
             </li>
           </ul>
         </div>
+        
       </nav>
     </>
   );

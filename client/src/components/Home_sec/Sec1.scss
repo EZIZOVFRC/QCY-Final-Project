@@ -1,6 +1,6 @@
 .sec1 {
     width: 100%;
-  
+    padding-top: 80px;
     img {
       width: 100%;
       position: relative;
@@ -74,3 +74,95 @@
   
 
   
+  @media only screen and (max-width: 1000px) {
+
+    .sec1 {
+
+    
+      img {
+        width: 100%;
+      }
+    
+      .item1 {
+        .cap1 {
+          top: 35%;
+          left: 100px;
+          font-size: 32px;
+    
+          h3 {
+            font-size: 24px;
+          }
+    
+          p {
+            font-size: 34px;
+          }
+        }
+      }
+      .item2 {
+          .cap2 {
+            top: 35%;
+            right: 40px;
+            font-size: 32px;
+      
+            h3 {
+              font-size: 24px;
+            }
+      
+            p {
+              font-size: 44px;
+            }
+          }
+        }
+    }
+    
+
+
+  }
+
+
+  
+  @media only screen and (max-width: 500px) {
+
+    .sec1 {
+padding: 40px 0px;
+    
+      img {
+        width: 160%
+      }
+    
+      .item1 {
+        .cap1 {
+          top: 45%;
+          left: 50px;
+          font-size: 32px;
+    
+          h3 {
+            font-size: 18px;
+          }
+    
+          p {
+            font-size: 24px;
+          }
+        }
+      }
+      .item2 {
+          .cap2 {
+            top: 50%;
+            left: 40px;
+            font-size: 22px;
+      
+            h3 {
+              font-size: 18px;
+            }
+      
+            p {
+              font-size: 28px;
+              font-weight: bold;
+            }
+          }
+        }
+    }
+    
+
+
+  }
