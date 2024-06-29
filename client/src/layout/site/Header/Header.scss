@@ -26,10 +26,22 @@ $second-color: #ffad00;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: 15%;
+        width: 25%;
         // padding: 25px;
-
+        .loginA{
+          border: 1px solid white;
+          padding: 5px 10px;
+          border-radius: 10px;
+        }
         a {
+          color: white;
+          font-size: 24px;
+          transition: 0.3s;
+          
+          &:hover{
+            color: $second-color;
+          
+          }
             
             i {
                 font-size: 24px;

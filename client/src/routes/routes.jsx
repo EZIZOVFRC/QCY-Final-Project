@@ -16,6 +16,10 @@ import LoadingPage from "../pages/LoadingPage/LoadingPage";
 import News from "../components/News/News";
 import Contact from "../components/Contact/Contact";
 import DetailPage from "../components/DetailPage/DetailPage";
+import LoginRegister from "../components/LoginRegister/LoginRegister";
+import CheckoutForm from '../components/Stripe/CheckoutForm';
+import WrappedCheckoutForm from "../components/Stripe/CheckoutForm";
+import SuccesPage from "../components/Stripe/SuccesPage";
 
 
 
@@ -54,6 +58,17 @@ const ROUTES =[
                 element:<DetailPage/>
             }
         ]
+    },
+    {
+        path:'loginRegister',
+        element:<LoginRegister/>
+    },
+    {
+        path:'payment',
+        element:<WrappedCheckoutForm/>
+    },{
+        path:'success',
+        element:<SuccesPage/>
     },
     {
         path:"/admin",

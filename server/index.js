@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 const multer = require('multer')
 const app = express()
 require("dotenv").config()
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 app.use(cors())
 app.use(express.json())
 app.use('/public', express.static('public/images'));
@@ -17,6 +18,44 @@ app.listen(8080, () => {
     console.log("isleyir")
 })
 
+app.post('/create-payment-intent', async (req, res) => {
+    const { amount } = req.body;
+    
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount,
+      currency: 'usd',
+    });
+  
+    res.send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  });
+  
+
+// app.post('/api/register',(req,res)=>{
+//     userModel.create(req.body)
+//     .then(user=>res.json(user))
+//     .catch(err=>res.json(err))
+// })
+// app.post('/api/login',(req,res)=>{
+//     const {email,password}=req.body
+//     userModel.findOne({email,password}).then((user)=>{
+//         if (user) {
+//             if (user.email===email) {
+//                 if (user.password===password) {
+//                     res.jso('Login successful')
+//                 }else{
+//                     res.json('Incorrect password')
+//                 }
+//             }else{
+//                 res.json('Email Incorrect')
+//             }
+//         }else{
+//             res.json('User not found')
+//         }
+//     })
+
+// })
 const headphonesRouter = require("./routes/headphones.routes");
 app.use("/api/headphones", headphonesRouter);
 
@@ -28,3 +67,8 @@ app.use("/api/news", newsRouter);
 
 const earBudsRouter = require("./routes/earBuds.routes");
 app.use("/api/earBuds", earBudsRouter);
+const orderRouter = require("./routes/order.routes");
+app.use("/api/order", orderRouter);
+
+const userRouter = require("./routes/user.routes");
+app.use("/api", userRouter);

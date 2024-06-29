@@ -23,7 +23,6 @@ const Contact = () => {
             (error) => {
               console.log('FAILED...', error.text);
             },
-           
           );
           e.target.reset()
       };

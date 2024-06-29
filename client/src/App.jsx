@@ -11,10 +11,6 @@ function App() {
   const [ear,setEar]=useState([])
   const [full,setFull]=useState([])
   const [news, setnews] = useState([]);
-  
-
-
-
   const [basketItems,setBasketItems]=useState(localStorage.getItem('basketItems')?JSON.parse(localStorage.getItem('basketItems')):[])
 
   const addToBasket=(item)=>{
@@ -127,6 +123,7 @@ function App() {
   const context = {full,news,setnews,setFull,head,setHead,ear,setEar,deleteBasket, loading, setLoading, error, setError, data, setdata ,basketItems,setBasketItems,wishItems,setWishItems,addToBasket,deleteToBasket,addToWish};
   return (
     <>
+
       <MainContext.Provider value={context}>
         <RouterProvider router={router} />
       </MainContext.Provider>

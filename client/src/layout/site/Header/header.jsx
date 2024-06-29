@@ -37,7 +37,7 @@ const Header = () => {
         <div className="nav">
           <div className="nav__logo">
             <Link to={""}>
-              <img src="https://qcy.com/phone/images/logo.png" alt="Logo" />
+              <img src="https://www.qcy.com/phone/images/logo.png" alt="Logo" />
             </Link>
           </div>
           <div className="nav__tabs col-5">
@@ -78,6 +78,7 @@ const Header = () => {
             <Link to={'basket'}>
               <i className="fa-solid fa-cart-shopping"></i>
             </Link>
+            <Link className="loginA" to={'loginRegister'}>Sign in</Link>
           </div>
           <Button className="off" variant="primary" onClick={handleShow}>
           <i class="fa-solid fa-bars"></i>

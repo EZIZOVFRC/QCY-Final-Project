@@ -32,17 +32,17 @@ export function SideMenu({initialFilter}) {
 
 
   useEffect(() => {
-    setLoading(true); 
+    setLoading(true)
     let filtreliData = full;
     if (filtre === "earbuds") {
-      filtreliData = full.filter(item => item.desc.includes("earbuds"));
+      filtreliData = full.filter(item => item.desc.includes("earbuds"))
     } else if (filtre === "headphones") {
-      filtreliData = full.filter(item => item.desc.includes("headphones"));
+      filtreliData = full.filter(item => item.desc.includes("headphones"))
     } else if (filtre === "Watches") {
-      filtreliData = full.filter(item => item.title.includes("Watches"));
+      filtreliData = full.filter(item => item.title.includes("Watches"))
     }
-    setFiltreliVeri(filtreliData);
-    setLoading(false); 
+    setFiltreliVeri(filtreliData)
+    setLoading(false)
   }, [filtre, full]);
 
   const handleAddToWish = (item) => {
