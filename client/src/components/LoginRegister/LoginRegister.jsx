@@ -64,10 +64,7 @@ function LoginRegister() {
       <div className="form-container sign-in-container">
         <form action="#" onSubmit={handleLoginSubmit}>
           <h1>Sign in</h1>
-          <div className="social-container">
-  <Link to={'http://localhost:8080/auth/facebook'} className="social"><i className="fab fa-facebook-f"></i></Link>
-  <Link to={'http://localhost:8080/auth/google'} className="social"><i className="fab fa-google-plus-g"></i></Link>
-</div>
+
 
           <span>or use your account</span>
           <input type="email" placeholder="Email" onChange={(e) => setLoginEmail(e.target.value)} />

@@ -3,10 +3,6 @@ const express = require("express")
 const cors = require("cors")
 const mongoose = require("mongoose")
 const multer = require('multer')
-const passport = require('passport');
-const session = require('express-session');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const FacebookStrategy = require('passport-facebook').Strategy;
 const app = express()
 require("dotenv").config()
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
@@ -15,59 +11,6 @@ app.use(express.json())
 app.use('/public', express.static('public/images'));
 // ----------------------
 
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
-
-passport.deserializeUser((obj, done) => {
-  done(null, obj);
-});
-
-
-passport.use(new GoogleStrategy({
-  clientID: 'GOOGLE_CLIENT_ID',
-  clientSecret: 'GOOGLE_CLIENT_SECRET',
-  callbackURL: 'http://localhost:8080/auth/google/callback'
-},
-(token, tokenSecret, profile, done) => {
-  return done(null, profile);
-}));
-
-passport.use(new FacebookStrategy({
-  clientID: 'FACEBOOK_APP_ID',
-  clientSecret: 'FACEBOOK_APP_SECRET',
-  callbackURL: 'http://localhost:8080/auth/facebook/callback'
-},
-(token, tokenSecret, profile, done) => {
-  return done(null, profile);
-}));
-
-
-app.use(session({
-  secret: 'SECRET_KEY',
-  resave: false,
-  saveUninitialized: false
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
-
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/' }),
-  (req, res) => {
-    res.redirect('/');
-  });
-
-app.get('/auth/facebook', passport.authenticate('facebook'));
-
-app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/' }),
-  (req, res) => {
-    res.redirect('/');
-  });
 // ------------
 mongoose.connect(process.env.sec).then(() => {
     console.log("qosuldu")
