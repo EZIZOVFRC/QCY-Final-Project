@@ -3,22 +3,18 @@ const mongoose = require("mongoose");
 const orderSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
   },
   email: {
     type: String,
-    required: true,
   },
   orderHeadphones: [
     {
       headphone: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'headphones',
-        required: true,
       },
       count: {
         type: Number,
-        required: true,
         default: 1,
       },
     },
@@ -28,24 +24,21 @@ const orderSchema = new mongoose.Schema({
       earBuds: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'earBuds',
-        required: true,
       },
       count: {
         type: Number,
-        required: true,
         default: 1,
       },
     },
-  ],orderWatches: [
+  ],
+  orderWatches: [
     {
       watches: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'watches',
-        required: true,
       },
       count: {
         type: Number,
-        required: true,
         default: 1,
       },
     },

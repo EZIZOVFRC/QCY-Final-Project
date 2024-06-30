@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './LoginRegister.scss';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function LoginRegister() {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
@@ -65,10 +65,10 @@ function LoginRegister() {
         <form action="#" onSubmit={handleLoginSubmit}>
           <h1>Sign in</h1>
           <div className="social-container">
-            <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-            <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
-          </div>
+  <Link to={'http://localhost:8080/auth/facebook'} className="social"><i className="fab fa-facebook-f"></i></Link>
+  <Link to={'http://localhost:8080/auth/google'} className="social"><i className="fab fa-google-plus-g"></i></Link>
+</div>
+
           <span>or use your account</span>
           <input type="email" placeholder="Email" onChange={(e) => setLoginEmail(e.target.value)} />
           <input type="password" placeholder="Password" onChange={(e) => setLoginPassword(e.target.value)} />

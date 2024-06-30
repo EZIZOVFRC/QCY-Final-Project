@@ -30,6 +30,13 @@
     }
 }
 .forum{
+    button{
+        background-color: white;
+        border: none;
+        border-radius: 10px;
+        width: 150px;
+        padding: 10px 0px;
+    }
     
     display: flex;
     justify-content: center;
@@ -75,4 +82,6 @@
   }
   
 
-  
+  .adminAccordion{
+    height: 70vh;
+  }

@@ -1,7 +1,6 @@
 import SiteRoot from "../pages/site/SiteRoot";
 import Home from "../pages/site/home/home";
 import AdminRoot from './../pages/admin/AdminRoot';
-import Dashboard from './../pages/admin/dashboard/dashboard';
 import Add from './../pages/admin/add/add';
 import Products from './../pages/admin/products/Products';
 import Basket from './../components/Basket/Basket';
@@ -20,6 +19,8 @@ import LoginRegister from "../components/LoginRegister/LoginRegister";
 import CheckoutForm from '../components/Stripe/CheckoutForm';
 import WrappedCheckoutForm from "../components/Stripe/CheckoutForm";
 import SuccesPage from "../components/Stripe/SuccesPage";
+import NewsProduct from "../pages/admin/products/NewsProduct";
+import AddNews from "../pages/admin/add/AddNews";
 
 
 
@@ -75,10 +76,6 @@ const ROUTES =[
         element: <AdminRoot/>,
         children:[
             {
-                path:"",
-                element:<Dashboard/>
-            },
-            {
                 path:"add",
                 element:<Add/>
             },{
@@ -96,6 +93,12 @@ const ROUTES =[
             },{
                 path:'aearbuds',
                 element:<AddEarbuds/>
+            },{
+                path:'news',
+                element:<NewsProduct/>
+            },{
+                path:'anews',
+                element:<AddNews/>
             }
         ]
     }

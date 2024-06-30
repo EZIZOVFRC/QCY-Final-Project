@@ -13,7 +13,7 @@ function App() {
   const [news, setnews] = useState([]);
   const [basketItems,setBasketItems]=useState(localStorage.getItem('basketItems')?JSON.parse(localStorage.getItem('basketItems')):[])
 
-  const addToBasket=(item)=>{
+  const addToBasket=(item,type)=>{
       const target=basketItems.find((x)=>x.item._id==item._id)
       if (target) {
           target.count+=1;
@@ -27,6 +27,7 @@ function App() {
               item:item,
               count:1,
               totalPrice:item.price,
+              type:type
           }
           setBasketItems([...basketItems,newItem])
           localStorage.setItem('basketItems',JSON.stringify(basketItems))

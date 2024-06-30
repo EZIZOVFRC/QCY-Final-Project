@@ -3,13 +3,72 @@ const express = require("express")
 const cors = require("cors")
 const mongoose = require("mongoose")
 const multer = require('multer')
+const passport = require('passport');
+const session = require('express-session');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 const app = express()
 require("dotenv").config()
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 app.use(cors())
 app.use(express.json())
 app.use('/public', express.static('public/images'));
+// ----------------------
 
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
+
+
+passport.use(new GoogleStrategy({
+  clientID: '697600022265-pqse2lnn76073rkcnaq0k0cqba7gk25k.apps.googleusercontent.co',
+  clientSecret: 'G0CSPX-3squVBJaP9ot8PauLVXXPq3dpVDI',
+  callbackURL: 'http://localhost:8080/auth/google/callback'
+},
+(token, tokenSecret, profile, done) => {
+  return done(null, profile);
+}));
+
+passport.use(new FacebookStrategy({
+  clientID: '1393884524601852',
+  clientSecret: '49dbf294e24d35f2a9844c7f13a10ab1',
+  callbackURL: 'http://localhost:8080/auth/facebook/callback'
+},
+(token, tokenSecret, profile, done) => {
+  return done(null, profile);
+}));
+
+
+app.use(session({
+  secret: 'SECRET_KEY',
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.get('/auth/google', passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
+
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/' }),
+  (req, res) => {
+    res.redirect('/');
+  });
+
+app.get('/auth/facebook', passport.authenticate('facebook'));
+
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/' }),
+  (req, res) => {
+    res.redirect('/');
+  });
+// ------------
 mongoose.connect(process.env.sec).then(() => {
     console.log("qosuldu")
     })
@@ -32,30 +91,6 @@ app.post('/create-payment-intent', async (req, res) => {
   });
   
 
-// app.post('/api/register',(req,res)=>{
-//     userModel.create(req.body)
-//     .then(user=>res.json(user))
-//     .catch(err=>res.json(err))
-// })
-// app.post('/api/login',(req,res)=>{
-//     const {email,password}=req.body
-//     userModel.findOne({email,password}).then((user)=>{
-//         if (user) {
-//             if (user.email===email) {
-//                 if (user.password===password) {
-//                     res.jso('Login successful')
-//                 }else{
-//                     res.json('Incorrect password')
-//                 }
-//             }else{
-//                 res.json('Email Incorrect')
-//             }
-//         }else{
-//             res.json('User not found')
-//         }
-//     })
-
-// })
 const headphonesRouter = require("./routes/headphones.routes");
 app.use("/api/headphones", headphonesRouter);
 

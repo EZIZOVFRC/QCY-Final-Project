@@ -29,7 +29,7 @@ const Header = () => {
         <div className="nav">
           <div className="nav__logo">
             <Link to={""}>
-              <img src="https://qcy.com/phone/images/logo.png" alt="Logo" />
+              <img src="https://www.qcy.com/phone/images/logo.png" alt="Logo" />
             </Link>
           </div>
           <div className="nav__tabs col-5">
@@ -52,24 +52,7 @@ const Header = () => {
                   PRODUCTS
                 </Link>
               </li>
-              <li>
-                <Link>NEWS</Link>
-              </li>
-              <li>
-                <Link>BLOG</Link>
-              </li>
-              <li>
-                <Link>CONTACT US</Link>
-              </li>
             </ul>
-          </div>
-          <div className="nav__cart">
-            <Link to={'wishlist'}>
-              <i className="fa-solid fa-heart"></i>
-            </Link>
-            <Link to={'basket'}>
-              <i className="fa-solid fa-cart-shopping"></i>
-            </Link>
           </div>
         </div>
         <div
@@ -96,10 +79,10 @@ const Header = () => {
           </ul>
         </div>
         <div
-          className="acordion1"
+          className="acordion1 adminAccordion"
           onMouseEnter={handleAboutMouseEnter}
           onMouseLeave={handleAboutMouseLeave}
-          style={{ height: isAboutHovered ? "45vh" : "0" }}
+          style={{ height: isAboutHovered ? "60vh" : "0" }}
         >
           <img src="https://www.qcy.com/phone/images/downbg.png" alt="" />
           <ul>
@@ -114,7 +97,7 @@ const Header = () => {
               <Link to={'products'}>Smart Watches</Link>
             </li>
             <li>
-              <Link to={'nproducts'}>News</Link>
+              <Link to={'news'}>News</Link>
             </li>
           </ul>
         </div>

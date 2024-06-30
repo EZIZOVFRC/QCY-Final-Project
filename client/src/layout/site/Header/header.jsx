@@ -6,6 +6,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 
 const Header = () => {
+  
   const [isProductHovered, setIsProductHovered] = useState(false);
   const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [show, setShow] = useState(false);
@@ -64,9 +65,6 @@ const Header = () => {
                 <Link to={'news'}>NEWS</Link>
               </li>
               <li>
-                <Link>BLOG</Link>
-              </li>
-              <li>
                 <Link to={'contact'}>CONTACT US</Link>
               </li>
             </ul>
@@ -79,6 +77,7 @@ const Header = () => {
               <i className="fa-solid fa-cart-shopping"></i>
             </Link>
             <Link className="loginA" to={'loginRegister'}>Sign in</Link>
+            {/* <button className="userProfile"><i class="fa-solid fa-user"></i></button> */}
           </div>
           <Button className="off" variant="primary" onClick={handleShow}>
           <i class="fa-solid fa-bars"></i>
@@ -138,12 +137,6 @@ const Header = () => {
             <h5>About Us</h5>
             <li>
               <Link to={'story'}>QCY history</Link>
-            </li>
-            <li>
-              <Link>Videos</Link>
-            </li>
-            <li>
-              <Link>See more</Link>
             </li>
           </ul>
         </div>
