@@ -21,8 +21,8 @@ const Sec2 = () => {
               <h2 className="text-h2">Ear-Buds</h2>
               <p className="text-p">
                 These earbuds provide crisp. <br />
-                With their sleek design and comfortable fit. <br />
-                Compact and lightweight.
+                With their sleek design and comfortable fit. Compact and
+                lightweight.
               </p>
               <div className="links">
                 <Link to="/products/earbuds">
@@ -44,9 +44,9 @@ const Sec2 = () => {
             <div className="face back">
               <h2 className="text-h2">Smart Watches</h2>
               <p className="text-p">
-                These earbuds provide crisp. <br />
-                With their sleek design and comfortable fit. <br />
-                Compact and lightweight.
+                A smartwatch is a wearable device that combines the
+                functionality of a traditional watch with advanced features such
+                as fitness tracking, notifications, and even apps.
               </p>
               <div className="links">
                 <Link to="/products/Watches">
@@ -68,9 +68,9 @@ const Sec2 = () => {
             <div className="face back">
               <h2 className="text-h2">Headphones</h2>
               <p className="text-p">
-                These earbuds provide crisp. <br />
-                With their sleek design and comfortable fit. <br />
-                Compact and lightweight.
+                They come in various
+                types, including over-ear, on-ear, and in-ear, each offering
+                different levels of comfort and sound quality.
               </p>
               <div className="links">
                 <Link to="/products/headphones">

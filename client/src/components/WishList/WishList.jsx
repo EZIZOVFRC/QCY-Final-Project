@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import MainContext from '../../context/context';
 import './WishList.scss';
+import News from '../Home_sec/News';
+import WatchList from '../Watches/WatchList';
+import { Helmet } from 'react-helmet';
 
 const WishList = () => {
-  const { wishItems, addToWish, addToBasket } = useContext(MainContext);
+  const { wishItems, addToWish, addToBasket,data } = useContext(MainContext);
   const [showToast, setShowToast] = useState(false);
 
   const handleAddToWish = (item) => {
@@ -26,32 +29,49 @@ const WishList = () => {
   };
 
   return (
+    <>
+    <Helmet>
+      <title>FAVORITES</title>
+    </Helmet>
     <main id='wi'>
-      <h1>Wish List</h1>
-      <section className='wishlist' style={{ paddingTop: '100px' }}>
-        {
-          wishItems.length === 0 ? (
-            <h2>Wishlist is empty</h2>
-          ) : (
-            wishItems.map((item, index) => {
-              const heartColor = isItemInWishList(item.item) ? 'red' : '';
-              return (
-                <div className='mywish col-4' key={index}>
-                  <img src={`http://localhost:8080/public/${item.item.image}`} alt="" width={'100px'} />
-                  <span>{item.item.title}</span>
-                  <h5>{item.item.price}$</h5>
-                  <button className='add' onClick={() => addToBasket(item.item)}>Add To Cart</button>
-                  <button className='del' onClick={() => handleAddToWish(item.item)}>
+      <h1>Favorites</h1>
+      <table className="table table-hover wishTable">
+          <thead>
+            <tr>
+              <th scope="col" className='wishT'></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              wishItems.map((item, index) => {
+                const heartColor = isItemInWishList(item.item) ? 'red' : '';
+                return (
+                  <tr className='tr wishTr' key={index}>
+                    <th scope="row" className='mgi'><img src={`http://localhost:8080/public/${item.item.image}`} width={'200px'} alt="" /> <div>
+                    <h3>{item.item.title}</h3>
+                    <span>{item.item.price} $</span>
+                      </div></th>
+                      <th className='wishBasket'>
+                        <button  onClick={()=>{
+                          addToBasket(item.item)
+                        }}>Add To Cart</button>
+                      </th>
+                      <th className='wishWish'>
+                      <button className='del' onClick={() => handleAddToWish(item.item)}>
                     <i className={`fa-solid fa-heart`} style={{ color: heartColor }}></i>
                   </button>
-                  {showToast && <div className="toast">{isItemInWishList(item.item) ? 'Removed from Wishlist' : 'Added to Wishlist'}</div>}
-                </div>
-              );
-            })
-          )
-        }
-      </section>
-    </main>
+                      </th>
+                  </tr>
+                );
+              })
+            }
+          </tbody>
+        </table>
+        <WatchList data={data}/>
+        <News/>
+    </main></>
   );
 }
 

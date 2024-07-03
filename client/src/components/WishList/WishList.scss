@@ -115,6 +115,7 @@
         @include btn-border-drawing(#000000, #ffad00, 4px, bottom, right);
       }}
 #wi{
+  padding: 0px 100px;
     h1{
         text-align: center;
         font-size: 64px;
@@ -192,3 +193,48 @@
   font-size: 18px;
   @include btn-border-drawing(#000000, #ffad00, 4px, bottom, right);
 }
+
+.wishTr{
+  font-size: 24px;
+  
+}
+.wishTable{
+  th{
+    
+    font-size: 24px;
+  }
+  .wishT{
+    padding-left: 100px;
+  }
+  .wishBasket{
+    padding-top: 80px;
+    button{
+      border:2px solid orange;
+      padding: 10px 10px;
+      border-radius: 40px;
+      background-color: white;
+      transition: 0.2s;
+      &:hover{
+        background-color: orange;
+        border: 2px solid white;
+        color: white;
+      }
+    }
+    
+  }
+  .wishWish {
+    padding-top: 80px;
+    font-size: 34px;
+    i {
+      animation-name: heart;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+  }
+  
+  @keyframes heart {
+    from {transform: scale(1.2);}
+    to {transform: scale(1);}
+  }
+}  

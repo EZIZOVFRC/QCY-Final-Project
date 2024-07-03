@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Sec4.scss';
-import video from '../../../public/Videos/yoxlanis 2.mp4';
+import video from '../../../public/Videos/last_code_edit.mp4';
 import ScrollButton from '../ScrollButton/ScrollButton';
 const Sec4 = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

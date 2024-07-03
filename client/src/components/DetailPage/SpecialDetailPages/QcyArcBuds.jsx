@@ -8,6 +8,7 @@ import MainContext from "../../../context/context";
 import ProductDetail from "../ProductDetail";
 import ScrollButton from "./../../ScrollButton/ScrollButton";
 import FAQ from "../../Contact/FAQ";
+import { Helmet } from "react-helmet";
 
 const QcyArcBuds = () => {
   const { id } = useParams();
@@ -99,6 +100,12 @@ const QcyArcBuds = () => {
   };
 
   return (
+    <>
+    <Helmet>
+      <title>
+        Qcy Arc Buds
+      </title>
+    </Helmet>
     <main>
       <section className="detail-page">
         <div className="slider-container col-6">
@@ -202,7 +209,7 @@ const QcyArcBuds = () => {
       </section>
       <ScrollButton />
       <FAQ />
-    </main>
+    </main></>
   );
 };
 

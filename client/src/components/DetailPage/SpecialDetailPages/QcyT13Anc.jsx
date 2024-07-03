@@ -8,6 +8,7 @@ import MainContext from "../../../context/context";
 import ProductDetail from "../ProductDetail";
 import ScrollButton from "./../../ScrollButton/ScrollButton";
 import FAQ from "../../Contact/FAQ";
+import { Helmet } from "react-helmet";
 
 const QcyT13Anc = () => {
   const { id } = useParams();
@@ -99,6 +100,12 @@ const QcyT13Anc = () => {
   };
 
   return (
+   <>
+   <Helmet>
+    <title>
+      QCY T13
+    </title>
+   </Helmet>
     <main>
       <section className="detail-page">
         <div className="slider-container col-6">
@@ -209,7 +216,7 @@ const QcyT13Anc = () => {
       </section>
       <ScrollButton />
       <FAQ />
-    </main>
+    </main></>
   );
 };
 

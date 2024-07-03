@@ -3,6 +3,8 @@ import "./QcyHistory.scss";
 import video from "../../../public/Videos/story.mp4";
 import ScrollButton from "../ScrollButton/ScrollButton";
 
+import { Helmet } from 'react-helmet';
+
 const QcyHistory = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const storyElements = useRef([]);
@@ -47,6 +49,10 @@ const QcyHistory = () => {
   }, []);
 
   return (
+   <>
+    <Helmet>
+    <title>ABOUT</title>
+</Helmet>
     <main>
       <section className="story1" ref={(el) => (storyElements.current[0] = el)}>
         <img src="https://www.qcy.com/upfile/1693292479566964.png" alt="" />
@@ -172,7 +178,7 @@ const QcyHistory = () => {
         </div>
       </section>
       <ScrollButton/>
-    </main>
+    </main></>
   );
 };
 

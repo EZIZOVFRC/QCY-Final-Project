@@ -3,9 +3,14 @@ import News1 from './News1'
 import { Link } from 'react-router-dom'
 import News2 from './News2'
 import ScrollButton from '../ScrollButton/ScrollButton'
+import { Helmet } from 'react-helmet'
 
 const News = () => {
   return (
+    <>
+    <Helmet>
+      <title>NEWS</title>
+    </Helmet>
     <main className='newsMain'>
     <News1/>
     <h1>News</h1>
@@ -13,7 +18,7 @@ const News = () => {
     <h2>List</h2>
     <News2/>
     <ScrollButton/>
-    </main>
+    </main></>
   )
 }
 

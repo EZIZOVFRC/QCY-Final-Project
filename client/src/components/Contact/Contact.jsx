@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import FAQ from './FAQ';
 import Location from './Location';
 import ScrollButton from '../ScrollButton/ScrollButton';
+import { Helmet } from 'react-helmet';
 
 
 const Contact = () => {
@@ -27,6 +28,10 @@ const Contact = () => {
           e.target.reset()
       };
   return (
+   <>
+   <Helmet>
+    <title>CONTACT</title>
+   </Helmet>
     <main >
         <section className="contact_sec1">
     <h1>Contact Us</h1>
@@ -84,7 +89,7 @@ const Contact = () => {
        <Location/>
         <FAQ/>
        <ScrollButton/>
-    </main>
+    </main></>
   )
 }
 

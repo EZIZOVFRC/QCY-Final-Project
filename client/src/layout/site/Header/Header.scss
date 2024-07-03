@@ -27,7 +27,6 @@ $second-color: #ffad00;
         justify-content: space-around;
         align-items: center;
         width: 25%;
-        // padding: 25px;
         .loginA{
           border: 1px solid white;
           padding: 5px 10px;
@@ -36,7 +35,23 @@ $second-color: #ffad00;
         a {
           color: white;
           font-size: 24px;
-          transition: 0.3s;
+          display: flex;
+          justify-content: center;align-items: center;
+          gap: 10px;
+          position: relative;
+          span{
+            position: absolute;
+            background-color: rgb(255, 23, 23);
+            width: 20px;
+            font-size: 15px;
+            height: 20px;
+            display: flex;
+            justify-content: center;align-items: center;
+            border-radius: 50%;
+            left: 20%;
+            top: -5%;
+          }
+          
           
           &:hover{
             color: $second-color;
@@ -44,12 +59,12 @@ $second-color: #ffad00;
           }
             
             i {
-                font-size: 24px;
+                font-size: 18px;
                 color: white;
                 transition: 0.3s;
 
                 &:hover {
-                    font-size: 32px;
+                    
                     color: #ffad00;
                 }
             }
@@ -58,7 +73,7 @@ $second-color: #ffad00;
 
     &__tabs {
         margin-left: 150px;
-        // padding: 25px;
+
         font-family: sans-serif;
         display: flex;
         align-items: center;
@@ -313,3 +328,20 @@ nav {
   
   }
   
+
+  .user-menu{
+    color: white;
+    font-size: 28px;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;justify-content: center;align-items: center;
+    padding: 10px;
+    transition: 0.2s;
+    cursor: pointer;
+    &:hover{
+      color: orange;
+
+    }
+  }

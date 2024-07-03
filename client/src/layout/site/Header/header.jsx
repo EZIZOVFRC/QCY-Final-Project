@@ -1,18 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-
+import MainContext from "../../../context/context";
 
 const Header = () => {
-  
+  const {basketItems}=useContext(MainContext)
   const [isProductHovered, setIsProductHovered] = useState(false);
   const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [show, setShow] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    const confirmLogout = window.confirm("Are you sure?");
+    if (confirmLogout) {
+      localStorage.removeItem("user");
+      setIsLoggedIn(false);
+    }
+  };
 
   const handleProductMouseEnter = () => {
     setIsProductHovered(true);
@@ -30,6 +47,10 @@ const Header = () => {
 
   const handleAboutMouseLeave = () => {
     setIsAboutHovered(false);
+  };
+
+  const getTotalBasketItems = () => {
+    return basketItems.reduce((total, item) => total + item.count, 0);
   };
 
   return (
@@ -71,40 +92,44 @@ const Header = () => {
           </div>
           <div className="nav__cart">
             <Link to={'wishlist'}>
-              <i className="fa-solid fa-heart"></i>
+              <i className="fa-solid fa-heart"> </i>Favorites
             </Link>
-            <Link to={'basket'}>
-              <i className="fa-solid fa-cart-shopping"></i>
+            <Link  to={'basket'}>
+              <i className="fa-solid fa-cart-shopping"> </i>Cart <span>{getTotalBasketItems()}</span>
             </Link>
-            <Link className="loginA" to={'loginRegister'}>Sign in</Link>
-            {/* <button className="userProfile"><i class="fa-solid fa-user"></i></button> */}
+            {isLoggedIn ? (
+              <div className="user-menu">
+                <i className="fa-solid fa-user" onClick={handleLogout}></i>
+              </div>
+            ) : (
+              <Link className="loginA" to={'loginRegister'}>Sign in</Link>
+            )}
           </div>
           <Button className="off" variant="primary" onClick={handleShow}>
-          <i class="fa-solid fa-bars"></i>
-      </Button>
-
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Menu</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-        <Link to={''}  onClick={handleClose}>
-            HOME
-          </Link>
-        <Link to={'/products'} className="product" onClick={handleClose}>
-            PRODUCTS
-          </Link>
-          <Link to={'/story'} className="about" onClick={handleClose}>
-            ABOUT QCY
-          </Link>
-          <Link to={'/news'} onClick={handleClose}>
-            NEWS
-          </Link>
-          <Link to={'/contact'} onClick={handleClose}>
-            CONTACT US
-          </Link>
-        </Offcanvas.Body>
-      </Offcanvas>
+            <i className="fa-solid fa-bars"></i>
+          </Button>
+          <Offcanvas show={show} onHide={handleClose}>
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>Menu</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Link to={''} onClick={handleClose}>
+                HOME
+              </Link>
+              <Link to={'/products'} className="product" onClick={handleClose}>
+                PRODUCTS
+              </Link>
+              <Link to={'/story'} className="about" onClick={handleClose}>
+                ABOUT QCY
+              </Link>
+              <Link to={'/news'} onClick={handleClose}>
+                NEWS
+              </Link>
+              <Link to={'/contact'} onClick={handleClose}>
+                CONTACT US
+              </Link>
+            </Offcanvas.Body>
+          </Offcanvas>
         </div>
         <div
           className="acordion"
@@ -140,7 +165,6 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        
       </nav>
     </>
   );

@@ -10,6 +10,7 @@ import ScrollButton from './../../ScrollButton/ScrollButton';
 import FAQ from "../../Contact/FAQ";
 import WhiteBlack from "../../Home_sec/WhiteBlack";
 import LoadingPage from './../../../pages/LoadingPage/LoadingPage';
+import { Helmet } from "react-helmet";
 
 const ImageSlider = () => {
   const { id } = useParams();
@@ -102,6 +103,12 @@ const ImageSlider = () => {
   };
 
   return (
+    <>
+    <Helmet>
+    <title>
+      QCY H3-H4
+    </title>
+  </Helmet>
     <main>
       <section className="detail-page">
         <div className="slider-container col-6">
@@ -209,7 +216,7 @@ const ImageSlider = () => {
       </section>
       <ScrollButton/>
       <FAQ/>
-    </main>
+    </main></>
   );
 };
 

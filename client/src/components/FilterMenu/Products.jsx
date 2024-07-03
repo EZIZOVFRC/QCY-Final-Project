@@ -7,9 +7,14 @@ import ProductsSec2 from './ProductsSec2'
 import AnimatedText from '../AnimatedText/AnimatedText'
 import ScrollButton from '../ScrollButton/ScrollButton'
 import FAQ from '../Contact/FAQ'
+import { Helmet } from 'react-helmet'
 const Products = () => {
   const { filter } = useParams();
   return (
+   <>
+   <Helmet>
+    <title>PRODUCTS</title>
+   </Helmet>
     <main>
         <ProductsSec1/>
         <div className="link"><Link to={"/"}>Home</Link><i class="fa-solid fa-angle-right"></i><Link to={""}>Products</Link></div>
@@ -18,7 +23,7 @@ const Products = () => {
         <ProductsSec2/>
         <ScrollButton/>
         <FAQ/>
-    </main>
+    </main></>
   )
 }
 

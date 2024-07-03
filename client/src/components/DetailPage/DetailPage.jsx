@@ -8,6 +8,7 @@ import QcyT13Anc from './SpecialDetailPages/QcyT13Anc';
 
 import ProductDetail from "./ProductDetail";
 import FAQ from "../Contact/FAQ";
+import { Helmet } from "react-helmet";
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -82,6 +83,10 @@ const DetailPage = () => {
   ) : detail.title.includes('T13') ? (
     <QcyT13Anc />
   ) : (
+    <>
+    <Helmet>
+      <title>DETAIL</title>
+    </Helmet>
     <main>
       <section className="detail">
       <div className="detail__left col-6">
@@ -99,7 +104,7 @@ const DetailPage = () => {
       
     </section>
     <FAQ/>
-    </main>
+    </main></>
   );
 };
 

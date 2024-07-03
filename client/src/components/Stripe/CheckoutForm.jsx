@@ -10,6 +10,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./CheckoutForm.scss";
 import MainContext from "../../context/context";
+import { Helmet } from "react-helmet";
 
 const stripePromise = loadStripe(
   "pk_test_51PX0OxEcSQXKPZFeUiCHAT8W0qxLpcOG57CLxmMDmYLLPk2JwbdDhTdBOvQ7h5TDZnXAN0HWyrQ1AqTTFfkf16Jf00NCFenydx"
@@ -160,12 +161,17 @@ const WrappedCheckoutForm = () => {
   }, [basketItems]);
 
   return (
+    <>
+    <Helmet>
+      <title>CHECKOUT</title>
+    </Helmet>
     <main className="stripe">
       <h1>Complete Payment</h1>
       <Elements stripe={stripePromise}>
         <CheckoutForm clientSecret={clientSecret} amount={totalAmount} />
       </Elements>
     </main>
+    </>
   );
 };
 

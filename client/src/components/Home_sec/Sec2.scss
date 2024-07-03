@@ -40,7 +40,7 @@ a {
 .wrapper {
   display: flex;
   gap: 40px;
-  padding: 150px 80px;
+  padding: 80px;
   padding-left: 150px;
 }
 
@@ -133,11 +133,23 @@ a {
 .card .back .text-h2 {
   font-size: 30px;
   letter-spacing: 2px;
+  position: relative;
+  font-weight: bold;
+  &::after{
+    content: '';
+    position:absolute;
+    width: 60%;
+    height: 2px;
+    background-color: orange;
+    bottom: -10PX;
+    left: 20%;
+  }
 }
 
 .card .back .text-p {
   letter-spacing: 1px;
-  line-height: 40px;
+  line-height: 35px;
+  font-size: 18px;
 }
 
 .card:hover .front {
